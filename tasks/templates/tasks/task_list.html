@@ -1,0 +1,13 @@
+<h1>Görevler</h1>
+<a href="{% url 'task_create' %}">Yeni Görev Ekle</a>
+<ul>
+    {% for task in object_list %}
+        <li>
+            {{ task.title }} - {{ task.completed|yesno:"Bitti,Devam Ediyor" }}
+            <a href="{% url 'task_update' task.pk %}">Düzenle</a> | 
+            <a href="{% url 'task_delete' task.pk %}">Sil</a>
+        </li>
+    {% empty %}
+        <li>Henüz görev yok.</li>
+    {% endfor %}
+</ul>

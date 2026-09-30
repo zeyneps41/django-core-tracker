@@ -1,0 +1,7 @@
+<h1>Görevi Sil</h1>
+<p>"{{ object.title }}" görevini silmek istediğinize emin misiniz?</p>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Evet, Sil</button>
+</form>
+<a href="{% url 'task_list' %}">İptal</a>
